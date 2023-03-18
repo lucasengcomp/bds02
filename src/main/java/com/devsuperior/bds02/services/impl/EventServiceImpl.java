@@ -28,11 +28,8 @@ public class EventServiceImpl implements EventServiceIT {
     public EventDTO update(Long id, EventDTO dto) {
         try {
             Event entity = repository.getOne(id);
-            entity.setName(dto.getName());
-            entity.setDate(dto.getDate());
-            entity.setUrl(dto.getUrl());
 
-            entity.setCity(cityRepository.getOne(dto.getCityId()));
+            objectsEvents(dto, entity);
 
             entity = repository.save(entity);
             return new EventDTO(entity);
