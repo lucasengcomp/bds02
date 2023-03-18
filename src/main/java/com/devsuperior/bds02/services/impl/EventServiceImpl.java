@@ -12,7 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 
-import static com.devsuperior.bds02.exceptions.Utils.ID_NOT_FOUND;
+import static com.devsuperior.bds02.resources.exceptions.Utils.ID_NOT_FOUND;
+
 
 @Service
 public class EventServiceImpl implements EventServiceIT {

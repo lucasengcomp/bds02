@@ -3,6 +3,7 @@ package com.devsuperior.bds02.services.impl;
 import com.devsuperior.bds02.dto.CityDTO;
 import com.devsuperior.bds02.entities.City;
 import com.devsuperior.bds02.repositories.CityRepository;
+import com.devsuperior.bds02.resources.exceptions.Utils;
 import com.devsuperior.bds02.services.exceptions.DataBaseException;
 import com.devsuperior.bds02.services.exceptions.ResourceNotFoundException;
 import com.devsuperior.bds02.services.interfaces.CityServiceIT;
@@ -16,8 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.devsuperior.bds02.exceptions.Utils.ID_NOT_FOUND;
-import static com.devsuperior.bds02.exceptions.Utils.INTEGRITY_VIOLATION;
+import static com.devsuperior.bds02.resources.exceptions.Utils.ID_NOT_FOUND;
+import static com.devsuperior.bds02.resources.exceptions.Utils.INTEGRITY_VIOLATION;
 
 
 @Service
