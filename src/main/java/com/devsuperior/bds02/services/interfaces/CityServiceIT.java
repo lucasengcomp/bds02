@@ -9,4 +9,6 @@ public interface CityServiceIT {
     List<CityDTO> findAllSortByNameCity();
 
     CityDTO insert(CityDTO dto);
+
+    void delete(Long id);
 }

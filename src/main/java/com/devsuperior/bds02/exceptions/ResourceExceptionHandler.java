@@ -1,16 +1,20 @@
 package com.devsuperior.bds02.exceptions;
 
-import com.devsuperior.bds02.services.exceptions.DatabaseException;
-import com.devsuperior.bds02.services.exceptions.ResourceNotFoundException;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import java.time.Instant;
 
 import javax.servlet.http.HttpServletRequest;
-import java.time.Instant;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import com.devsuperior.bds02.services.exceptions.DataBaseException;
+import com.devsuperior.bds02.services.exceptions.ResourceNotFoundException;
 
 import static com.devsuperior.bds02.resources.exceptions.Utils.DATABASE_EXCEPTION;
 
+@ControllerAdvice
 public class ResourceExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
@@ -21,8 +25,8 @@ public class ResourceExceptionHandler {
         return ResponseEntity.status(status).body(error);
     }
 
-    @ExceptionHandler(DatabaseException.class)
-    public ResponseEntity<StandardError> database(DatabaseException e, HttpServletRequest request) {
+    @ExceptionHandler(DataBaseException.class)
+    public ResponseEntity<StandardError> database(DataBaseException e, HttpServletRequest request) {
         HttpStatus status = HttpStatus.BAD_REQUEST;
         StandardError error = new StandardError();
         patternMessage(error, status, DATABASE_EXCEPTION, e.getMessage(), request);
