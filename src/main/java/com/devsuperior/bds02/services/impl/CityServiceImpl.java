@@ -32,4 +32,12 @@ public class CityServiceImpl implements CityServiceIT {
         List<City> list = repository.findAll(Sort.by("name"));
         return list.stream().map(CityDTO::new).collect(Collectors.toList());
     }
+
+    @Override
+    public CityDTO insert(CityDTO dto) {
+        City entity = new City();
+        entity.setName(dto.getName());
+        entity = repository.save(entity);
+        return new CityDTO(entity);
+    }
 }

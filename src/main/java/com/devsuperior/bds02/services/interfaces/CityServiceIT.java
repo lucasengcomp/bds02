@@ -7,4 +7,6 @@ import java.util.List;
 public interface CityServiceIT {
 
     List<CityDTO> findAllSortByNameCity();
+
+    CityDTO insert(CityDTO dto);
 }
